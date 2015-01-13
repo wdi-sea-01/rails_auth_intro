@@ -1,0 +1,7 @@
+<h1>Home Page - Protected </h1>
+
+<% flash.each do |k,v| %>
+  <h3><strong><%= k %></strong> - <%= v %></h3>
+<% end %>
+
+This is a protected page for <%= @user.email %>
