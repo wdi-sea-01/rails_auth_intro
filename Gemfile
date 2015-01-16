@@ -35,6 +35,7 @@ gem 'bcrypt', '~> 3.1.7'
 group :development do
   gem 'pry-rails'
   gem 'quiet_assets'
+  gem 'letter_opener'
 end
 
 # Use Capistrano for deployment
