@@ -4,14 +4,15 @@ class SessionsController < ApplicationController
   end
 
   def create
+    # TODO: Taco
     @user = User.authenticate(params[:user][:email], params[:user][:password])
 
     if @user
       session[:user_id] = @user.id
-      flash[:success] = "User logged in!!"
+      flash[:success] = "Login Successful!"
       redirect_to root_path
     else
-      flash[:error] = "Credentials Invalid!!"
+      flash[:danger] = "Credentials Invalid!"
       render :new
     end
 
@@ -19,7 +20,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    flash[:notice] = "User logged out!"
+    flash[:info] = "User logged out!"
     redirect_to login_path
   end
 
