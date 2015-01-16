@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   # validates :password, presence: true, on: :create
 
   validates_confirmation_of :password, on: :create
-  validates_presence_of :password_confirmation
+  validates_presence_of :password_confirmation, on: :create
 
   def self.authenticate email,password
     User.find_by_email(email).try(:authenticate, password)
