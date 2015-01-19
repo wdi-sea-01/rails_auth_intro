@@ -17,7 +17,7 @@ class PasswordsController < ApplicationController
   end
 
   def update
-    @user = User.find_by_reset_code(params[:code]).where(Time.now < )
+    @user = User.find_by_reset_code(params[:code])
     @user.password = params[:password]
     @user.save
 
