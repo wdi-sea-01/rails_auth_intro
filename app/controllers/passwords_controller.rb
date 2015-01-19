@@ -17,9 +17,12 @@ class PasswordsController < ApplicationController
   end
 
   def update
+    # render :json => params
     @user = User.find_by_reset_code(params[:code])
-    @user.password = params[:password]
+    @user.password = params[:user][:password]
     @user.save
+
+    flash[:success] = "Password Changed!"
 
     redirect_to login_path
 
